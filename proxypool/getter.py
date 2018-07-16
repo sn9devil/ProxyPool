@@ -28,5 +28,3 @@ class Getter():
                 for proxy in proxies:
                     self.redis.add(proxy)
 
-getter = Getter()
-getter.run()

@@ -61,3 +61,5 @@ class Tester(object):
                 time.sleep(5)
         except Exception as e:
             print('测试器发生错误', e.args)
+
+

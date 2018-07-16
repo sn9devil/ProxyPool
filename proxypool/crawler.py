@@ -25,7 +25,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
             proxies.append(proxy)
         return proxies
 
-    def crawl_daili66(self,page_count=4):
+    def crawl_daili66(self,page_count=10):
         """
         获取代理66
         :param page_count: 页码
@@ -52,7 +52,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
                     yield ':'.join([ip, port])
 
     def crawl_xicidaili(self):
-        for i in range(1,3):
+        for i in range(1,10):
             start_url = 'http://www.xicidaili.com/nn/{}'.format(i)
             headers = {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
