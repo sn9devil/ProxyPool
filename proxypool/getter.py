@@ -27,3 +27,6 @@ class Getter():
                 sys.stdout.flush()
                 for proxy in proxies:
                     self.redis.add(proxy)
+
+getter = Getter()
+getter.run()

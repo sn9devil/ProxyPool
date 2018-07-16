@@ -34,9 +34,15 @@ class Crawler(object, metaclass=ProxyMetaclass):
         start_url = 'http://66ip.cn/{}.html'
         urls = [start_url.format(page) for page in range(1, page_count + 1)]
         pattern = re.compile('<td>(.*?)</td>')
+        header = {
+            'Cookie': 'UM_distinctid=16498a494ca35e-03efbfd4a2a419-3c604504-1fa400-16498a494cb68; _ydclearance=b8fa8f0fcec80d45d5825c29-6ae4-4365-9bb0-b651b38b41d6-1531724888; yd_cookie=7a2e0031-afec-4be9bfb69d4ee303553c98b8843b775738d5; CNZZDATA1253901093=1159170338-1531566038-null%7C1531712845; Hm_lvt_1761fabf3c988e7f04bec51acd4073f4=1531634012,1531634017,1531634020,1531717690; Hm_lpvt_1761fabf3c988e7f04bec51acd4073f4=1531717729',
+            'Host': 'www.66ip.cn',
+            'Accept': 'text / html, application / xhtml + xml, application / xml;q = 0.9, image / webp, image / apng, * / *;q = 0.8',
+            'Upgrade-Insecure-Requests': '1',
+        }
         for url in urls:
             print('Crawling', url)
-            html = get_page(url)
+            html = get_page(url, options=header)
             if html:
                 doc = BeautifulSoup(html, 'lxml')
                 trs = doc.select('div.container table tr')
